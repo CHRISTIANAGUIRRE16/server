@@ -4,7 +4,7 @@ import { RepositoryEnum, DataSourceEnum } from "src/shared/enums";
 
 //Se crea una provider por modulo -modulo ventas
 //INSTALAR LIBRERIA DE SHARED EN NEST JS COMANDO : 
-export const ventasProvider = [
+export const ventasProviders = [
   {
     provide: RepositoryEnum.PRODUCT_REPOSITORY,
     useFactory: (dataSource: DataSource) =>
