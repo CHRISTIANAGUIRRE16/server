@@ -9,8 +9,8 @@ import {
   BeforeUpdate,
   ManyToOne,
   OneToMany,
-} from 'typeorm'; 
-import { ProductEntity } from './product.model';
+} from 'typeorm';
+import { ProductEntity } from './product.entity';
 
 @Entity('Categories', { schema: 'ventas' })
 export class CategoryEntity {
@@ -36,7 +36,7 @@ export class CategoryEntity {
   })
   deleteAt: Date;
 
-  @OneToMany(() => ProductEntity, (product) => product.categories)
+  @OneToMany(() => ProductEntity, (product) => product.category)
   products: ProductEntity[];
 
   @Column('integer', {

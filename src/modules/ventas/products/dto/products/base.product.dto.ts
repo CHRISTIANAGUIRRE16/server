@@ -1,10 +1,11 @@
 import { Allow, IsNotEmpty, IsNumber, IsPositive, IsString } from "class-validator";
-import { CategoryEntity } from "src/modules/ventas/products/entities/category.model";
+import { CategoryEntity } from "src/modules/ventas/products/entities/category.entity";
 
-@Exclude()
 export class BaseProductDto {
+  @Allow()
+  readonly category: CategoryEntity;
   @IsString()
-  @IsNotEmpty(isNotEmptyValidationOptions())
+  @IsNotEmpty(isStringValidationOptions())
   readonly title;
 
   @IsNumber()

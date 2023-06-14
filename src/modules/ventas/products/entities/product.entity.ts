@@ -9,7 +9,7 @@ import {
   BeforeUpdate,
   ManyToOne,
 } from 'typeorm'; //  COMANDO A INSTALAR TYPEORM: npm i --save @nestjs/typeorm typeorm    npm install class-validator --save.
-import { CategoryEntity } from './category.model';
+import { CategoryEntity } from './category.entity';
 
 @Entity('products', { schema: 'ventas' })
 export class ProductEntity {
@@ -35,7 +35,7 @@ export class ProductEntity {
   })
   deleteAt: Date;
   @ManyToOne(() => CategoryEntity, (category) => category.products)
-  categories: CategoryEntity; // crear el category model con las columnas y las relacion oneToMany
+  category: CategoryEntity; // crear el category model con las columnas y las relacion oneToMany
 
   @Column('varchar', {
     // para crear las tablas se crear con @column y se agregan los atributos con el tipo
@@ -99,12 +99,12 @@ export class ProductEntity {
   }
 }
   /*@BeforeInsert()
-  @BeforeUpdate()
-  async setPassword() {
-    if (!this.password) {
-      return;
-    } else{
-      return this.password.bcrypt().trim();
-    }
+@BeforeUpdate()
+async setPassword() {
+  if (!this.password) {
+    return;
+  } else{
+    return this.password.bcrypt().trim();
   }
+}
 }*/
